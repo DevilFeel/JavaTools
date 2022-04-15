@@ -766,5 +766,48 @@ flushall # 清除所有数据库
 
 ```
 
+## 慢查询相关命令
 
+### 慢查询配置修改（config set）
+
+```shell
+config set slowlog-log-slower-than 20000
+config set slowlog-max-len 1000
+config rewrite
+# 如果要redis将配置持久化到本地配置文件，需要执行config rewrite命令。
+```
+
+![](https://static01.imgkr.com/temp/902925088a6a47c8854bc44730e0d891.png)
+
+
+
+### 慢查询命令
+
+#### 1 获取慢查询日志 slowlog get
+
+```shell
+slowlog get [n]
+# 参数n可以指定条数
+```
+样例如下：
+![](https://static01.imgkr.com/temp/9472f04e2c1c4719a2636e1a75a6dfc1.png)
+
+可以看到每个慢查询日志有4个属性组成，分别是**慢查询日志的标识id、发生时间戳、命令耗时、执行命令和参数**。
+
+![](https://static01.imgkr.com/temp/12e720995da341c18e61b12eeb3aa473.png)
+
+#### 2 获取慢查询日志列表当前的长度 slowlog len
+
+```shell
+slowlog len
+# 获取长度，返回 整型
+```
+
+
+
+#### 3 慢查询日志重置 slowlog reset
+
+```shell
+slowlog reset
+```
 
