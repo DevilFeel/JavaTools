@@ -811,3 +811,37 @@ slowlog len
 slowlog reset
 ```
 
+
+
+## Bitmaps常用命令
+
+### 1 设置值 setbit
+
+```shell
+setbit key offset value
+```
+
+> 第一次初始化Bitmaps的时候，加入偏移量非常大，会造成redis阻塞
+
+### 2 获取值 getbit
+
+```shell
+getbit key offset
+# 返回键的第offset位的值（从0开始算）
+# 返回0 说明没有访问过
+```
+
+### 3 获取Bitmaps指定范围值为1 的个数 bitcount
+
+```shell
+bitcount key [start][end]
+```
+
+### 4 bitmaps间的运算 bitop
+
+```shell
+bitop op destkey key[key ...]
+# op 可以是不同的运算规则：and(交集)、or(并集)、not(非)、xor(异或)。
+
+```
+
