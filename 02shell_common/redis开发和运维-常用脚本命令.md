@@ -845,3 +845,14 @@ bitop op destkey key[key ...]
 
 ```
 
+
+
+## 持久化相关命令
+
+```shell
+save
+bgsave
+```
+
+![](https://static01.imgkr.com/temp/1f90176689ca43158ea54ed9cc37fa8a.png)
+
